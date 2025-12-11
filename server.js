@@ -117,6 +117,21 @@ app.get("/api/history", async (req, res) => {
   }
 });
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// ---------- Start server ----------
+app.listen(port, () => {
+  console.log(`Rideau Canal dashboard backend listening on port ${port}`);
+});
+
+/ ---------- Start server ----------
+app.listen(port, () => {
+  console.log(`Rideau Canal dashboard backend listening on port ${port}`);
+});
+
+
 // ---------- Start server ----------
 app.listen(port, () => {
   console.log(`Rideau Canal dashboard backend listening on port ${port}`);
