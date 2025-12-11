@@ -27,8 +27,8 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-          
-
+      - name: npm test 
+        run: echo "Skipping tests in CI for this project"
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
