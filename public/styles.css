@@ -1,0 +1,254 @@
+/* Base layout */
+:root {
+  --bg: #f5f5f7;
+  --card-bg: #ffffff;
+  --text-main: #111111;
+  --text-muted: #6e6e73;
+  --border-subtle: #e5e5ea;
+  --safe: #34c759;
+  --warning: #ffcc00;
+  --danger: #ff3b30;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --radius-card: 18px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui,
+    sans-serif;
+  background-color: var(--bg);
+  color: var(--text-main);
+}
+
+/* Shell */
+.app-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.app-subtitle {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.app-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.last-updated {
+  color: var(--text-muted);
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Main */
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Sections */
+.section-header h2 {
+  margin: 0 0 2px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.section-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Cards (latest status) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.status-card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-card);
+  padding: 16px 16px 14px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-location {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.status-time {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+}
+
+/* Safety colors */
+.status-safe {
+  background-color: rgba(52, 199, 89, 0.12);
+  color: var(--safe);
+}
+
+.status-safe .status-dot {
+  background-color: var(--safe);
+}
+
+.status-warning {
+  background-color: rgba(255, 204, 0, 0.14);
+  color: #a28300;
+}
+
+.status-warning .status-dot {
+  background-color: var(--warning);
+}
+
+.status-danger {
+  background-color: rgba(255, 59, 48, 0.1);
+  color: var(--danger);
+}
+
+.status-danger .status-dot {
+  background-color: var(--danger);
+}
+
+/* Metrics list */
+.metrics-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.metric-chip {
+  flex: 1 1 120px;
+  font-size: 13px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background-color: #f9f9fb;
+  border: 1px solid var(--border-subtle);
+}
+
+.metric-label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 11px;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.metric-value {
+  font-weight: 500;
+}
+
+/* Charts section */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.chart-card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-card);
+  padding: 12px 12px 16px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.chart-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+canvas {
+  width: 100%;
+  max-height: 220px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .app-header {
+    align-items: flex-start;
+  }
+
+  .app-meta {
+    align-items: flex-start;
+  }
+}
