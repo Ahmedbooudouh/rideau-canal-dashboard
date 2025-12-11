@@ -59,7 +59,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'rideau-canal-dashboard--cxckgeg3hke8gqda'
+          app-name: 'rideau-canal-dashboard-'
           slot-name: 'Production'
           package: .
 
